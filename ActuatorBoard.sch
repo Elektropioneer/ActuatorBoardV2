@@ -2891,4 +2891,6 @@ F 3 "" H 9100 2900 50  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 Connection ~ 9050 2900
+Text Notes 4800 4450 0    60   ~ 0
+Dual crystal (TH and SMD)
 $EndSCHEMATC

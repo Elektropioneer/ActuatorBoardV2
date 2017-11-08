@@ -3791,9 +3791,9 @@
     (effects (font (size 0.8 0.8) (thickness 0.2)))
   )
 
-  (segment (start 205.44918 35.9) (end 205.44918 33.54918) (width 2) (layer F.Cu) (net 1) (status 400000))
-  (segment (start 205.44918 33.54918) (end 201.85 29.95) (width 2) (layer F.Cu) (net 1) (tstamp 5A030484) (status 800000))
-  (segment (start 201.85 29.95) (end 201.85 28.4) (width 2) (layer F.Cu) (net 1) (tstamp 5A030486) (status C00000))
+  (segment (start 205.44918 35.9) (end 205.44918 33.54918) (width 2) (layer F.Cu) (net 1))
+  (segment (start 205.44918 33.54918) (end 201.85 29.95) (width 2) (layer F.Cu) (net 1) (tstamp 5A030484))
+  (segment (start 201.85 29.95) (end 201.85 28.4) (width 2) (layer F.Cu) (net 1) (tstamp 5A030486))
   (segment (start 198.6 74.8) (end 198.6 75.5) (width 0.25) (layer B.Cu) (net 1))
   (segment (start 199.4 76.58) (end 200.62 77.8) (width 0.25) (layer B.Cu) (net 1) (tstamp 5A0440A5))
   (segment (start 199.4 76.3) (end 199.4 76.58) (width 0.25) (layer B.Cu) (net 1) (tstamp 5A0440A4))
@@ -4665,7 +4665,7 @@
     (connect_pads (clearance 0.508))
     (min_thickness 0.254)
     (keepout (tracks not_allowed) (vias not_allowed) (copperpour not_allowed))
-    (fill (arc_segments 16) (thermal_gap 0.508) (thermal_bridge_width 0.508))
+    (fill yes (arc_segments 16) (thermal_gap 0.508) (thermal_bridge_width 0.508))
     (polygon
       (pts
         (xy 236.3 94.8) (xy 217.3 94.8) (xy 217.3 72.6) (xy 236.3 72.6) (xy 236.3 94.8)
@@ -5183,7 +5183,7 @@
     (connect_pads (clearance 0.508))
     (min_thickness 0.254)
     (keepout (tracks not_allowed) (vias not_allowed) (copperpour not_allowed))
-    (fill (arc_segments 16) (thermal_gap 0.508) (thermal_bridge_width 0.508))
+    (fill yes (arc_segments 16) (thermal_gap 0.508) (thermal_bridge_width 0.508))
     (polygon
       (pts
         (xy 214.9 24.5) (xy 214.9 38.2) (xy 224.2 38.2) (xy 224.2 45.8) (xy 236.4 45.8)
