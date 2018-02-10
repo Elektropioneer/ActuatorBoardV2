@@ -329,4 +329,6 @@ Text Notes 500  2300 0    60   ~ 0
 Module
 Text Notes 1700 3500 0    60   ~ 0
 Relay schematic with BC547 driver
+Text Notes 3950 1100 0    118  ~ 0
+Compatible with:\n - all module slots\n - ! Prefered for M5 and M6, because of the 1 pin support !
 $EndSCHEMATC

@@ -1,4 +1,4 @@
-update=уторак, 02. јануар 2018. 14:40:55 CET
+update=субота, 10. фебруар 2018. 20:28:57 CET
 version=1
 last_client=kicad
 [pcbnew]
@@ -59,3 +59,13 @@ LibName27=atmel
 LibName28=contrib
 LibName29=valves
 LibName30=/home/silardg/Development/Robotics/Hardware/Aktuatorska/Module/aktuator_module
+[schematic_editor]
+version=1
+PageLayoutDescrFile=
+PlotDirectoryName=
+SubpartIdSeparator=0
+SubpartFirstId=65
+NetFmtName=
+SpiceForceRefPrefix=0
+SpiceUseNetNumbers=0
+LabSize=60

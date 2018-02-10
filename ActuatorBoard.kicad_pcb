@@ -3,7 +3,7 @@
   (general
     (links 105)
     (no_connects 1)
-    (area 161.424999 24.424999 236.575001 114.075001)
+    (area 161.353799 21.146027 238.939001 114.364)
     (thickness 1.6)
     (drawings 49)
     (tracks 307)
@@ -2280,7 +2280,7 @@
   )
 
   (module Hardware:EP_Logo_2 (layer B.Cu) (tedit 0) (tstamp 5A7EA35D)
-    (at 225.9164 43.7592 180)
+    (at 225.9672 43.7592 180)
     (fp_text reference G*** (at 0 0 180) (layer B.SilkS) hide
       (effects (font (thickness 0.3)) (justify mirror))
     )

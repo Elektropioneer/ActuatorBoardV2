@@ -1,4 +1,4 @@
-update=уторак, 02. јануар 2018. 16:14:26 CET
+update=субота, 10. фебруар 2018. 20:13:28 CET
 version=1
 last_client=kicad
 [pcbnew]
@@ -25,16 +25,6 @@ version=1
 NetIExt=net
 [general]
 version=1
-[schematic_editor]
-version=1
-PageLayoutDescrFile=
-PlotDirectoryName=
-SubpartIdSeparator=0
-SubpartFirstId=65
-NetFmtName=Pcbnew
-SpiceForceRefPrefix=0
-SpiceUseNetNumbers=0
-LabSize=60
 [eeschema]
 version=1
 LibDir=
@@ -268,3 +258,13 @@ LibName226=/home/silardg/kicad-library/library/analog_devices
 LibName227=/home/silardg/kicad-library/library/Altera
 LibName228=/home/silardg/kicad-library/library/adc-dac
 LibName229=/home/silardg/kicad-library/library/ac-dc
+[schematic_editor]
+version=1
+PageLayoutDescrFile=
+PlotDirectoryName=
+SubpartIdSeparator=0
+SubpartFirstId=65
+NetFmtName=Pcbnew
+SpiceForceRefPrefix=0
+SpiceUseNetNumbers=0
+LabSize=60

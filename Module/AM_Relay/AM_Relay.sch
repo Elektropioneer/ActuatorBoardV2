@@ -28,18 +28,16 @@ LIBS:opto
 LIBS:atmel
 LIBS:contrib
 LIBS:valves
-LIBS:aktuator_module
-LIBS:ActuatorBoard-cache
 LIBS:AM_Relay-cache
 EELAYER 25 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 1
-Title ""
-Date ""
-Rev ""
-Comp ""
+Title "Actuator modul - Relay"
+Date "2018-02-10"
+Rev "1.1"
+Comp "Electropioneer"
 Comment1 ""
 Comment2 ""
 Comment3 ""

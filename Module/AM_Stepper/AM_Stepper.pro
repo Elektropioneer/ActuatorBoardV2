@@ -1,6 +1,6 @@
-update=недеља, 04. фебруар 2018. 16:54:31 CET
+update=субота, 10. фебруар 2018. 20:17:38 CET
 version=1
-last_client=eeschema
+last_client=kicad
 [general]
 version=1
 RootSch=
@@ -61,3 +61,13 @@ LibName27=atmel
 LibName28=contrib
 LibName29=valves
 LibName30=modules
+[schematic_editor]
+version=1
+PageLayoutDescrFile=
+PlotDirectoryName=
+SubpartIdSeparator=0
+SubpartFirstId=65
+NetFmtName=
+SpiceForceRefPrefix=0
+SpiceUseNetNumbers=0
+LabSize=60
