@@ -1,0 +1,27 @@
+EESchema-LIBRARY Version 2.3
+#encoding utf-8
+#
+# Aktuator_Module
+#
+DEF Aktuator_Module M 0 40 Y Y 1 F N
+F0 "M" 0 0 60 H V C CNN
+F1 "Aktuator_Module" 0 0 60 H V C CNN
+F2 "" 0 0 60 H I C CNN
+F3 "" 0 0 60 H I C CNN
+DRAW
+T 900 100 900 39 0 0 0 Custom~Pins Normal 0 C C
+T 900 100 550 39 0 0 0 ON/OFF Normal 0 C C
+T 900 100 250 39 0 0 0 Power Normal 0 C C
+S 0 0 350 1200 0 1 0 f
+X 5V 1 550 150 200 L 50 50 1 1 W
+X 12V 2 550 250 200 L 50 50 1 1 W
+X SIG 3 550 550 200 L 50 50 1 1 I
+X GND 4 550 350 200 L 50 50 1 1 W
+X S1 6 550 750 200 L 50 50 1 1 I
+X S2 7 550 850 200 L 50 50 1 1 I
+X S3 8 550 950 200 L 50 50 1 1 I
+X S4 9 550 1050 200 L 50 50 1 1 I
+ENDDRAW
+ENDDEF
+#
+#End Library

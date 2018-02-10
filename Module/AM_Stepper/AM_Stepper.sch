@@ -1,0 +1,331 @@
+EESchema Schematic File Version 2
+LIBS:power
+LIBS:device
+LIBS:transistors
+LIBS:conn
+LIBS:linear
+LIBS:regul
+LIBS:74xx
+LIBS:cmos4000
+LIBS:adc-dac
+LIBS:memory
+LIBS:xilinx
+LIBS:microcontrollers
+LIBS:dsp
+LIBS:microchip
+LIBS:analog_switches
+LIBS:motorola
+LIBS:texas
+LIBS:intel
+LIBS:audio
+LIBS:interface
+LIBS:digital-audio
+LIBS:philips
+LIBS:display
+LIBS:cypress
+LIBS:siliconi
+LIBS:opto
+LIBS:atmel
+LIBS:contrib
+LIBS:valves
+LIBS:modules
+LIBS:AM_Stepper-cache
+EELAYER 25 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title "Actuator - Module A4988"
+Date "2018-02-08"
+Rev "1.0"
+Comp "Electropioneer"
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L Aktuator_Module M1
+U 1 1 5A4EE1B4
+P 800 1950
+F 0 "M1" V 750 2000 60  0000 C CNN
+F 1 "Aktuator_Module" H 950 1850 60  0000 C CNN
+F 2 "Aktuator_Module:Aktuator_Module" H 800 1950 60  0001 C CNN
+F 3 "" H 800 1950 60  0001 C CNN
+	1    800  1950
+	1    0    0    -1  
+$EndComp
+$Comp
+L +5V #PWR2
+U 1 1 5A4EE3E3
+P 1400 1850
+F 0 "#PWR2" H 1400 1700 50  0001 C CNN
+F 1 "+5V" H 1400 1990 50  0000 C CNN
+F 2 "" H 1400 1850 50  0001 C CNN
+F 3 "" H 1400 1850 50  0001 C CNN
+	1    1400 1850
+	-1   0    0    1   
+$EndComp
+$Comp
+L +12V #PWR3
+U 1 1 5A4EE3FB
+P 1500 2050
+F 0 "#PWR3" H 1500 1900 50  0001 C CNN
+F 1 "+12V" H 1500 2190 50  0000 C CNN
+F 2 "" H 1500 2050 50  0001 C CNN
+F 3 "" H 1500 2050 50  0001 C CNN
+	1    1500 2050
+	-1   0    0    1   
+$EndComp
+$Comp
+L GND #PWR1
+U 1 1 5A4EE413
+P 1400 1600
+F 0 "#PWR1" H 1400 1350 50  0001 C CNN
+F 1 "GND" H 1400 1450 50  0000 C CNN
+F 2 "" H 1400 1600 50  0001 C CNN
+F 3 "" H 1400 1600 50  0001 C CNN
+	1    1400 1600
+	0    -1   -1   0   
+$EndComp
+Text GLabel 1400 1400 2    60   Input ~ 0
+STEP
+Text GLabel 1400 1200 2    60   Input ~ 0
+DIRECTION
+Text GLabel 1400 1100 2    60   Input ~ 0
+ENC_A
+Text GLabel 1400 1000 2    60   Input ~ 0
+ENC_B
+$Comp
+L Pololu_Breakout_A4988 A1
+U 1 1 5A772CC2
+P 4000 1700
+F 0 "A1" H 3900 2450 60  0000 R CNN
+F 1 "Pololu_Breakout_A4988" H 4450 600 60  0000 R CNN
+F 2 "Modules:Pololu_Breakout-16_15.2x20.3mm" H 4275 950 60  0001 L CNN
+F 3 "" H 4100 1400 60  0001 C CNN
+	1    4000 1700
+	1    0    0    -1  
+$EndComp
+Text GLabel 3550 1800 0    60   Input ~ 0
+DIRECTION
+Text GLabel 3550 1700 0    60   Input ~ 0
+STEP
+Wire Wire Line
+	1400 1850 1400 1800
+Wire Wire Line
+	1400 1800 1350 1800
+Wire Wire Line
+	1350 1700 1500 1700
+Wire Wire Line
+	1500 1700 1500 2050
+Wire Wire Line
+	1350 1600 1400 1600
+Wire Wire Line
+	1350 1400 1400 1400
+Wire Wire Line
+	1350 1200 1400 1200
+Wire Wire Line
+	1350 1100 1400 1100
+Wire Wire Line
+	1350 1000 1400 1000
+Wire Wire Line
+	3600 1300 3550 1300
+Wire Wire Line
+	3550 1300 3550 1400
+Wire Wire Line
+	3550 1400 3600 1400
+Wire Wire Line
+	3550 1700 3600 1700
+Wire Wire Line
+	3550 1800 3600 1800
+$Comp
+L +5V #PWR6
+U 1 1 5A772EE1
+P 4000 950
+F 0 "#PWR6" H 4000 800 50  0001 C CNN
+F 1 "+5V" H 4000 1090 50  0000 C CNN
+F 2 "" H 4000 950 50  0001 C CNN
+F 3 "" H 4000 950 50  0001 C CNN
+	1    4000 950 
+	1    0    0    -1  
+$EndComp
+$Comp
+L +12V #PWR9
+U 1 1 5A772F96
+P 4550 650
+F 0 "#PWR9" H 4550 500 50  0001 C CNN
+F 1 "+12V" H 4550 790 50  0000 C CNN
+F 2 "" H 4550 650 50  0001 C CNN
+F 3 "" H 4550 650 50  0001 C CNN
+	1    4550 650 
+	1    0    0    -1  
+$EndComp
+$Comp
+L CONN_01X04 J1
+U 1 1 5A772FFF
+P 4750 1750
+F 0 "J1" H 4750 2000 50  0000 C CNN
+F 1 "CONN_01X04" V 4850 1750 50  0000 C CNN
+F 2 "Connectors_JST:JST_EH_B04B-EH-A_04x2.50mm_Straight" H 4750 1750 50  0001 C CNN
+F 3 "" H 4750 1750 50  0001 C CNN
+	1    4750 1750
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4500 1600 4550 1600
+Wire Wire Line
+	4500 1700 4550 1700
+Wire Wire Line
+	4500 1800 4550 1800
+Wire Wire Line
+	4500 1900 4550 1900
+Wire Wire Line
+	4200 700  4200 1000
+Wire Wire Line
+	4000 950  4000 1000
+$Comp
+L GND #PWR7
+U 1 1 5A773189
+P 4000 2550
+F 0 "#PWR7" H 4000 2300 50  0001 C CNN
+F 1 "GND" H 4000 2400 50  0000 C CNN
+F 2 "" H 4000 2550 50  0001 C CNN
+F 3 "" H 4000 2550 50  0001 C CNN
+	1    4000 2550
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR8
+U 1 1 5A7731A9
+P 4200 2550
+F 0 "#PWR8" H 4200 2300 50  0001 C CNN
+F 1 "GND" H 4200 2400 50  0000 C CNN
+F 2 "" H 4200 2550 50  0001 C CNN
+F 3 "" H 4200 2550 50  0001 C CNN
+	1    4200 2550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4000 2500 4000 2550
+Wire Wire Line
+	4200 2500 4200 2550
+$Comp
+L CP C1
+U 1 1 5A77324B
+P 4550 900
+F 0 "C1" H 4575 1000 50  0000 L CNN
+F 1 "CP" H 4575 800 50  0000 L CNN
+F 2 "Capacitors_SMD:CP_Elec_5x4.5" H 4588 750 50  0001 C CNN
+F 3 "" H 4550 900 50  0001 C CNN
+	1    4550 900 
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4200 700  4550 700 
+Wire Wire Line
+	4550 650  4550 750 
+Connection ~ 4550 700 
+Wire Wire Line
+	4550 1050 4550 1100
+$Comp
+L GND #PWR10
+U 1 1 5A773403
+P 4550 1100
+F 0 "#PWR10" H 4550 850 50  0001 C CNN
+F 1 "GND" H 4550 950 50  0000 C CNN
+F 2 "" H 4550 1100 50  0001 C CNN
+F 3 "" H 4550 1100 50  0001 C CNN
+	1    4550 1100
+	1    0    0    -1  
+$EndComp
+NoConn ~ 1350 900 
+$Comp
+L CONN_01X04 J2
+U 1 1 5A773005
+P 2700 950
+F 0 "J2" H 2700 1200 50  0000 C CNN
+F 1 "CONN_01X04" V 2800 950 50  0000 C CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x04_Pitch2.54mm" H 2700 950 50  0001 C CNN
+F 3 "" H 2700 950 50  0001 C CNN
+	1    2700 950 
+	1    0    0    -1  
+$EndComp
+$Comp
+L +5V #PWR4
+U 1 1 5A77310A
+P 2450 750
+F 0 "#PWR4" H 2450 600 50  0001 C CNN
+F 1 "+5V" H 2450 890 50  0000 C CNN
+F 2 "" H 2450 750 50  0001 C CNN
+F 3 "" H 2450 750 50  0001 C CNN
+	1    2450 750 
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR5
+U 1 1 5A773124
+P 2450 1150
+F 0 "#PWR5" H 2450 900 50  0001 C CNN
+F 1 "GND" H 2450 1000 50  0000 C CNN
+F 2 "" H 2450 1150 50  0001 C CNN
+F 3 "" H 2450 1150 50  0001 C CNN
+	1    2450 1150
+	1    0    0    -1  
+$EndComp
+Text GLabel 2450 1000 0    60   Input ~ 0
+ENC_A
+Text GLabel 2450 900  0    60   Input ~ 0
+ENC_B
+Wire Wire Line
+	2450 750  2450 800 
+Wire Wire Line
+	2450 800  2500 800 
+Wire Wire Line
+	2450 900  2500 900 
+Wire Wire Line
+	2450 1000 2500 1000
+Wire Wire Line
+	2450 1150 2450 1100
+Wire Wire Line
+	2450 1100 2500 1100
+$Comp
+L CONN_01X03 J3
+U 1 1 5A7C54AC
+P 3350 2100
+F 0 "J3" H 3350 2300 50  0000 C CNN
+F 1 "CONN_01X03" V 3450 2100 50  0000 C CNN
+F 2 "Connectors:GS3" H 3350 2100 50  0001 C CNN
+F 3 "" H 3350 2100 50  0001 C CNN
+	1    3350 2100
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	3550 2000 3600 2000
+Wire Wire Line
+	3550 2100 3600 2100
+Wire Wire Line
+	3550 2200 3600 2200
+Wire Notes Line
+	450  2350 2000 2350
+Wire Notes Line
+	2000 2350 2000 500 
+Wire Notes Line
+	2000 1550 2900 1550
+Wire Notes Line
+	2900 1550 2900 500 
+Wire Notes Line
+	2900 1500 2900 3050
+Wire Notes Line
+	2900 3050 5050 3050
+Wire Notes Line
+	5050 3050 5050 500 
+Text Notes 500  2300 0    60   ~ 0
+Module\n
+Text Notes 2050 1500 0    60   ~ 0
+Encoder pinout
+Text Notes 2950 3000 0    60   ~ 0
+A4988 breakout
+Text Notes 5150 1050 0    118  ~ 0
+Suggested for:\nM1, M2 & M3, because of the 4 pin support.\nCan use M4 (with 3 pins) but can't use encoder
+$EndSCHEMATC

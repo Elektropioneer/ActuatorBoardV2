@@ -1,0 +1,334 @@
+EESchema Schematic File Version 2
+LIBS:power
+LIBS:device
+LIBS:transistors
+LIBS:conn
+LIBS:linear
+LIBS:regul
+LIBS:74xx
+LIBS:cmos4000
+LIBS:adc-dac
+LIBS:memory
+LIBS:xilinx
+LIBS:microcontrollers
+LIBS:dsp
+LIBS:microchip
+LIBS:analog_switches
+LIBS:motorola
+LIBS:texas
+LIBS:intel
+LIBS:audio
+LIBS:interface
+LIBS:digital-audio
+LIBS:philips
+LIBS:display
+LIBS:cypress
+LIBS:siliconi
+LIBS:opto
+LIBS:atmel
+LIBS:contrib
+LIBS:valves
+LIBS:aktuator_module
+LIBS:ActuatorBoard-cache
+LIBS:AM_Relay-cache
+EELAYER 25 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L Aktuator_Module M1
+U 1 1 5A4EE1B4
+P 700 1850
+F 0 "M1" H 600 1900 60  0000 C CNN
+F 1 "Aktuator_Module" H 850 1700 60  0000 C CNN
+F 2 "Aktuator_Module:Aktuator_Module" H 700 1850 60  0001 C CNN
+F 3 "" H 700 1850 60  0001 C CNN
+	1    700  1850
+	1    0    0    -1  
+$EndComp
+$Comp
+L CONN_01X03 J1
+U 1 1 5A4EE2F8
+P 3300 750
+F 0 "J1" H 3300 950 50  0000 C CNN
+F 1 "CONN_01X03" V 3400 750 50  0000 C CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x03_Pitch2.54mm" H 3300 750 50  0001 C CNN
+F 3 "" H 3300 750 50  0001 C CNN
+	1    3300 750 
+	0    -1   -1   0   
+$EndComp
+$Comp
+L +5V #PWR2
+U 1 1 5A4EE3E3
+P 1300 1750
+F 0 "#PWR2" H 1300 1600 50  0001 C CNN
+F 1 "+5V" H 1300 1890 50  0000 C CNN
+F 2 "" H 1300 1750 50  0001 C CNN
+F 3 "" H 1300 1750 50  0001 C CNN
+	1    1300 1750
+	-1   0    0    1   
+$EndComp
+$Comp
+L +12V #PWR3
+U 1 1 5A4EE3FB
+P 1400 1950
+F 0 "#PWR3" H 1400 1800 50  0001 C CNN
+F 1 "+12V" H 1400 2090 50  0000 C CNN
+F 2 "" H 1400 1950 50  0001 C CNN
+F 3 "" H 1400 1950 50  0001 C CNN
+	1    1400 1950
+	-1   0    0    1   
+$EndComp
+$Comp
+L GND #PWR1
+U 1 1 5A4EE413
+P 1300 1500
+F 0 "#PWR1" H 1300 1250 50  0001 C CNN
+F 1 "GND" H 1300 1350 50  0000 C CNN
+F 2 "" H 1300 1500 50  0001 C CNN
+F 3 "" H 1300 1500 50  0001 C CNN
+	1    1300 1500
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	1300 1750 1300 1700
+Wire Wire Line
+	1300 1700 1250 1700
+Wire Wire Line
+	1250 1600 1400 1600
+Wire Wire Line
+	1400 1600 1400 1950
+Wire Wire Line
+	1250 1500 1300 1500
+$Comp
+L +5V #PWR7
+U 1 1 5A4EE496
+P 3200 1000
+F 0 "#PWR7" H 3200 850 50  0001 C CNN
+F 1 "+5V" H 3200 1140 50  0000 C CNN
+F 2 "" H 3200 1000 50  0001 C CNN
+F 3 "" H 3200 1000 50  0001 C CNN
+	1    3200 1000
+	-1   0    0    1   
+$EndComp
+$Comp
+L +12V #PWR9
+U 1 1 5A4EE4C3
+P 3400 1000
+F 0 "#PWR9" H 3400 850 50  0001 C CNN
+F 1 "+12V" H 3400 1140 50  0000 C CNN
+F 2 "" H 3400 1000 50  0001 C CNN
+F 3 "" H 3400 1000 50  0001 C CNN
+	1    3400 1000
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	3200 1000 3200 950 
+Wire Wire Line
+	3400 1000 3400 950 
+$Comp
+L Screw_Terminal_1x02 J2
+U 1 1 5A4EE63F
+P 3550 1500
+F 0 "J2" H 3550 1750 50  0000 C TNN
+F 1 "Screw_Terminal_1x02" V 3400 1500 50  0000 C TNN
+F 2 "Connectors_Terminal_Blocks:TerminalBlock_Pheonix_MKDS1.5-2pol" H 3550 1275 50  0001 C CNN
+F 3 "" H 3525 1500 50  0001 C CNN
+	1    3550 1500
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	3300 1600 3300 1800
+$Comp
+L SANYOU_SRD_Form_B K1
+U 1 1 5A4EE99E
+P 3100 2100
+F 0 "K1" V 3500 2200 50  0000 L CNN
+F 1 "SANYOU_SRD_Form_B" V 3500 1350 50  0000 L CNN
+F 2 "Relays_THT:Relay_SANYOU_SRD_Series_Form_C" H 4400 2050 50  0001 C CNN
+F 3 "" H 3100 2100 50  0001 C CNN
+	1    3100 2100
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR8
+U 1 1 5A4EEB8E
+P 3300 2450
+F 0 "#PWR8" H 3300 2200 50  0001 C CNN
+F 1 "GND" H 3300 2300 50  0000 C CNN
+F 2 "" H 3300 2450 50  0001 C CNN
+F 3 "" H 3300 2450 50  0001 C CNN
+	1    3300 2450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3300 2400 3300 2450
+$Comp
+L +12V #PWR5
+U 1 1 5A4EF5B3
+P 2900 1700
+F 0 "#PWR5" H 2900 1550 50  0001 C CNN
+F 1 "+12V" H 2900 1840 50  0000 C CNN
+F 2 "" H 2900 1700 50  0001 C CNN
+F 3 "" H 2900 1700 50  0001 C CNN
+	1    2900 1700
+	1    0    0    -1  
+$EndComp
+$Comp
+L R R3
+U 1 1 5A4EF728
+P 2400 2700
+F 0 "R3" V 2480 2700 50  0000 C CNN
+F 1 "1K" V 2400 2700 50  0000 C CNN
+F 2 "Resistors_SMD:R_0805" V 2330 2700 50  0001 C CNN
+F 3 "" H 2400 2700 50  0001 C CNN
+	1    2400 2700
+	0    1    1    0   
+$EndComp
+$Comp
+L BC547 Q1
+U 1 1 5A4EF775
+P 2800 2700
+F 0 "Q1" H 3000 2775 50  0000 L CNN
+F 1 "BC547" H 3000 2700 50  0000 L CNN
+F 2 "TO_SOT_Packages_THT:TO-92_Inline_Narrow_Oval" H 3000 2625 50  0001 L CIN
+F 3 "" H 2800 2700 50  0001 L CNN
+	1    2800 2700
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR6
+U 1 1 5A4EFB9F
+P 2900 3150
+F 0 "#PWR6" H 2900 2900 50  0001 C CNN
+F 1 "GND" H 2900 3000 50  0000 C CNN
+F 2 "" H 2900 3150 50  0001 C CNN
+F 3 "" H 2900 3150 50  0001 C CNN
+	1    2900 3150
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2900 1700 2900 1800
+Connection ~ 2900 1750
+Wire Wire Line
+	2900 2400 2900 2500
+Wire Wire Line
+	2900 2900 2900 3150
+Text GLabel 1300 1300 2    60   Input ~ 0
+SIG
+Wire Wire Line
+	1250 1300 1300 1300
+$Comp
+L D D1
+U 1 1 5A4EE6D7
+P 2500 2100
+F 0 "D1" H 2500 2200 50  0000 C CNN
+F 1 "D" H 2500 2000 50  0000 C CNN
+F 2 "Diodes_THT:D_A-405_P2.54mm_Vertical_AnodeUp" H 2500 2100 50  0001 C CNN
+F 3 "" H 2500 2100 50  0001 C CNN
+	1    2500 2100
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	2500 1950 2500 1750
+Wire Wire Line
+	2500 2250 2500 2450
+Wire Wire Line
+	2050 2450 2900 2450
+Connection ~ 2900 2450
+Wire Wire Line
+	3300 950  3300 1400
+Wire Wire Line
+	3300 1400 3350 1400
+Wire Wire Line
+	3300 1600 3350 1600
+Wire Wire Line
+	2450 1750 2900 1750
+$Comp
+L R R1
+U 1 1 5A720746
+P 2200 2900
+F 0 "R1" V 2280 2900 50  0000 C CNN
+F 1 "10K" V 2200 2900 50  0000 C CNN
+F 2 "Resistors_SMD:R_0805" V 2130 2900 50  0001 C CNN
+F 3 "" H 2200 2900 50  0001 C CNN
+	1    2200 2900
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	2200 2750 2200 2700
+Wire Wire Line
+	2000 2700 2250 2700
+Wire Wire Line
+	2200 3050 2200 3150
+$Comp
+L GND #PWR4
+U 1 1 5A72081F
+P 2200 3150
+F 0 "#PWR4" H 2200 2900 50  0001 C CNN
+F 1 "GND" H 2200 3000 50  0000 C CNN
+F 2 "" H 2200 3150 50  0001 C CNN
+F 3 "" H 2200 3150 50  0001 C CNN
+	1    2200 3150
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2550 2700 2600 2700
+Connection ~ 2200 2700
+Text GLabel 2000 2700 0    60   Input ~ 0
+SIG
+$Comp
+L R R2
+U 1 1 5A72112B
+P 2300 1750
+F 0 "R2" V 2380 1750 50  0000 C CNN
+F 1 "1K" V 2300 1750 50  0000 C CNN
+F 2 "Resistors_SMD:R_0805" V 2230 1750 50  0001 C CNN
+F 3 "" H 2300 1750 50  0001 C CNN
+	1    2300 1750
+	0    1    1    0   
+$EndComp
+$Comp
+L LED D2
+U 1 1 5A721238
+P 2050 2050
+F 0 "D2" H 2050 2150 50  0000 C CNN
+F 1 "LED" H 2050 1950 50  0000 C CNN
+F 2 "LEDs:LED_0805" H 2050 2050 50  0001 C CNN
+F 3 "" H 2050 2050 50  0001 C CNN
+	1    2050 2050
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	2050 2450 2050 2200
+Connection ~ 2500 2450
+Wire Wire Line
+	2050 1900 2050 1750
+Wire Wire Line
+	2050 1750 2150 1750
+Connection ~ 2500 1750
+Wire Notes Line
+	1650 500  1650 3550
+Wire Notes Line
+	1650 2350 500  2350
+Wire Notes Line
+	1650 3550 3850 3550
+Wire Notes Line
+	3850 3550 3850 500 
+Text Notes 500  2300 0    60   ~ 0
+Module
+Text Notes 1700 3500 0    60   ~ 0
+Relay schematic with BC547 driver
+Text Notes 3950 1100 0    118  ~ 0
+Compatible with:\n - all module slots\n - ! Prefered for M5 and M6, because of the 1 pin support !
+$EndSCHEMATC
