@@ -1243,9 +1243,9 @@ Text GLabel 1250 900  2    60   Input ~ 0
 SIG3
 Text GLabel 1250 800  2    60   Input ~ 0
 SIG4
-Text GLabel 2550 1200 2    60   Input ~ 0
-SIG5
 Text GLabel 2550 1000 2    60   Input ~ 0
+SIG5
+Text GLabel 2550 1200 2    60   Input ~ 0
 SIG6
 Text GLabel 2550 900  2    60   Input ~ 0
 SIG7
