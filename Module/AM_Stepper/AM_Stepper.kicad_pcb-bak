@@ -371,7 +371,7 @@
       (net 13 "Net-(A1-Pad10)"))
   )
 
-  (module Aktuator_Module:Aktuator_Module (layer F.Cu) (tedit 5A842DE2) (tstamp 5A8431BC)
+  (module Aktuator_Module:Aktuator_Module (layer F.Cu) (tedit 5A84302A) (tstamp 5A8431BC)
     (at 148.59 97.79)
     (path /5A4EE1B4)
     (attr virtual)
@@ -381,7 +381,7 @@
     (fp_text value Aktuator_Module (at 10.16 -17.78) (layer F.Fab) hide
       (effects (font (size 1 1) (thickness 0.15)))
     )
-    (fp_text user 5V (at 17.526 -2.54 90) (layer B.SilkS)
+    (fp_text user 5V (at 17.526 -2.54 90) (layer B.SilkS) hide
       (effects (font (size 1 1) (thickness 0.15)) (justify mirror))
     )
     (fp_text user S (at 2.794 -1.27) (layer B.SilkS) hide
@@ -393,7 +393,7 @@
     (fp_text user G (at 17.526 -29.21) (layer B.SilkS) hide
       (effects (font (size 1 1) (thickness 0.15)) (justify mirror))
     )
-    (fp_text user 12V (at 17.526 -8.89 90) (layer B.SilkS)
+    (fp_text user 12V (at 17.526 -8.89 90) (layer B.SilkS) hide
       (effects (font (size 1 1) (thickness 0.15)) (justify mirror))
     )
     (pad 1 thru_hole circle (at 19.05 -1.27) (size 1.524 1.524) (drill 0.762) (layers *.Cu *.Mask)
