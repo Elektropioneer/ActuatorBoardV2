@@ -25,7 +25,7 @@ static uint8_t get_relay(uint8_t module) {
 
 void setup_relay(uint8_t module) { pinMode(get_relay(module), OUTPUT); }
 void switch_relay(uint8_t module) { digitalWrite(get_relay(module), !digitalRead(get_relay(module))); }
-uint8_t status_relay(uint8_t module) { return digitalRead(get_relay(module)); }
+int status_relay(uint8_t module) { return digitalRead(get_relay(module)); }
 
 /******************************************************************
 *                           L293D module                          *

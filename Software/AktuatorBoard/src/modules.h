@@ -5,7 +5,7 @@
 *******************************************************************/
 void setup_relay(uint8_t module);
 void switch_relay(uint8_t module);
-uint8_t status_relay(uint8_t module);
+int status_relay(uint8_t module);
 
 void setup_l293d();
 void write_l293d(uint8_t pwm, uint8_t dir);
