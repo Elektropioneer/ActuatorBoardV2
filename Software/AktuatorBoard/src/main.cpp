@@ -27,7 +27,7 @@ void onPacketReceived(const uint8_t* buffer, size_t size)
           case 'r':
             setup_relay(buffer[2]); // setup relay on module buffer[2]
             break;
-          // {'s', 'l'} - L293D SETUP
+          // { } - L293D SETUP
           case 'l':
             setup_l293d();
             break;
@@ -56,7 +56,7 @@ void onPacketReceived(const uint8_t* buffer, size_t size)
             // {'c','l',type,pwm, dir} - L293D CONTROL
             case 'l':
               if(buffer[2] == 'p') {
-                write_l293d(buffer[2], buffer[3]);
+                write_l293d(buffer[3], buffer[4]);
               } else if(buffer[2] == 's') {
                 stop_l293d();
               }
