@@ -33,29 +33,32 @@ int status_relay(uint8_t module) { return digitalRead(get_relay(module)); }
 
 void setup_l293d() {
   // only used for M1 module!
-  pinMode(2, INPUT);  // A encoder
-  pinMode(4, INPUT);  // B encoder
-  pinMode(6, OUTPUT); // PWM
-  pinMode(5, OUTPUT); // PWM
+//  pinMode(2, INPUT);  // A encoder
+  //pinMode(4, INPUT);  // B encoder
+  pinMode(A0, OUTPUT);
+  pinMode(11, OUTPUT);//pwm
+  pinMode(10, OUTPUT);
 
   //https://arduino-info.wikispaces.com/Arduino-PWM-Frequency?responseToken=4686e110cc1f147088c13606eb4ca6f0
-  TCCR0B = TCCR0B & B11111000 | B00000001;
+//  TCCR1B = TCCR1B & B11111000 | B00000001;
 
 }
 
-void write_l293d(uint8_t pwm, uint8_t dir) {
-  if(dir) {
-    digitalWrite(6, LOW);
-    analogWrite(5, pwm);
+void write_l293d(uint8_t pwm, int dir) {
+  if(dir == 1) {
+    digitalWrite(A0, LOW);
+    digitalWrite(10, HIGH);
   } else {
-    digitalWrite(5, LOW);
-    analogWrite(6, pwm);
+    digitalWrite(A0, HIGH);
+    digitalWrite(10, LOW);
   }
+
+  analogWrite(11, (int)pwm);
 }
 
 void stop_l293d(void) {
-  digitalWrite(6, HIGH);
-  digitalWrite(5, HIGH);
+  digitalWrite(A0, HIGH);
+  digitalWrite(10, HIGH);
 }
 
 /******************************************************************
