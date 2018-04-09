@@ -1,6 +1,8 @@
 #include <Arduino.h>
 #include <BasicStepperDriver.h>
 #include "modules.h"
+#include <DynamixelSoftSerial.h>
+#include <SoftwareSerial.h>
 
 BasicStepperDriver stepper_mod1(200, 6, 2);
 BasicStepperDriver stepper_mod2(200, 3, 7);
@@ -143,4 +145,55 @@ void set_rpm_stepper(uint8_t rpm, uint8_t module) {
       stepper_mod3.setRPM((short)(rpm));
       break;
   }
+}
+
+/******************************************************************
+*                         Ax Module                          *
+*******************************************************************/
+
+/* SETUP */
+void setup_ax(uint8_t baud,uint8_t Rx_Ax, uint8_t Tx_Ax, uint8_t Id) {
+  /*
+  D7: Id
+  D8: Rx_Ax
+  D3: Tx_Ax
+  */
+  Dynamixel.begin((long)(baud), Rx_Ax, Tx_Ax, Id );
+}
+
+/*ACTION*/
+void ax_move(uint8_t Id, uint16_t position) {
+    Dynamixel.move(Id, position);
+}
+
+void ax_movespeed(uint8_t Id, uint16_t position, uint16_t speed) {
+
+  Dynamixel.moveSpeed(Id, position, speed);
+
+}
+
+void ax_led(uint8_t Id, uint8_t LedAlarm) {
+  Dynamixel.setLEDAlarm(Id, LedAlarm);
+}
+
+/* STATUS */
+int ax_get_moving(uint8_t Id) {
+  int x = Dynamixel.moving(Id);
+  return x;
+}
+
+int ax_get_position(uint8_t Id) {
+  int x = Dynamixel.readPosition(Id);
+  return x;
+}
+
+int ax_get_temp(uint8_t Id) {
+  int x = Dynamixel.readTemperature(Id);
+  return x;
+}
+
+
+int ax_get_voltage(uint8_t Id) {
+  int x = Dynamixel.readVoltage(Id);
+  return x;
 }

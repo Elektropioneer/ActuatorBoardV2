@@ -2,24 +2,24 @@
  Dynamixel.cpp - Ax-12+ Half Duplex USART Comunication
  Copyright (c) 2011 Savage Electronics.
  Created by Savage on 27/01/11.
- 
+
  This library is free software; you can redistribute it and/or
  modify it under the terms of the GNU Lesser General Public
  License as published by the Free Software Foundation; either
  version 2.1 of the License, or (at your option) any later version.
- 
- This library is distributed in the hope that it will be useful,  
+
+ This library is distributed in the hope that it will be useful,
  but WITHOUT ANY WARRANTY; without even the implied warranty of
  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  Lesser General Public License for more details.
- 
+
  You should have received a copy of the GNU Lesser General Public
  License along with this library; if not, write to the Free Software
  Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
- 
+
  *****************************************************************************
  Modifications:
- 
+
  25/07/2011 - Eliminado la modificacion serial para ser modificada dentro del mismo Hardware Serial.
  25/07/2011 - Modificado la funcion setBD() para aceptar todas la velocidades sin PDF.
  25/07/2011 - Agregada la funcion de Rotacion Continua.
@@ -47,22 +47,22 @@
               int lockRegister(unsigned char ID);
               int RWStatus(unsigned char ID);
               int readSpeed(unsigned char ID);
-              int readLoad(unsigned char ID); 
- 
+              int readLoad(unsigned char ID);
+
  TODO:
- 
+
  FUNCION SYNCWRITE.
- 
+
  *****************************************************************************
- 
- Contact: savageelectronics@gmail.com 
+
+ Contact: savageelectronics@gmail.com
  Web:     http://savageelectrtonics.blogspot.com/
  Autor:   Josue Alejandro Savage
- 
+
  */
 
-#ifndef DynamixelSerial_h
-#define DynamixelSerial_h
+#ifndef DynamixelSoftSerial_h
+#define DynamixelSoftSerial_h
 
 	// EEPROM AREA  ///////////////////////////////////////////////////////////
 #define AX_MODEL_NUMBER_L           0
@@ -168,7 +168,7 @@
 #define AX_ACTION_CHECKSUM			250
 #define BROADCAST_ID                254
 #define AX_START                    255
-#define AX_CCW_AL_L                 255 
+#define AX_CCW_AL_L                 255
 #define AX_CCW_AL_H                 3
 #define TIME_OUT                    10         // Este parametro depende de la velocidad de transmision
 #define TX_DELAY_TIME				400        // Este parametro depende de la velocidad de transmision - pero pueden ser cambiados para mayor velocidad.
@@ -180,18 +180,20 @@
 
 class DynamixelClass {
 private:
-	
-	unsigned char Checksum; 
+
+	unsigned char DTx;              //		Default Serial Port 0 -> Rx  &  1 -> Tx
+	unsigned char DRx;
+	unsigned char Checksum;
 	unsigned char Direction_Pin;
 	unsigned char Time_Counter;
-	unsigned char Incoming_Byte;               
+	unsigned char Incoming_Byte;
 	unsigned char Position_High_Byte;
 	unsigned char Position_Low_Byte;
 	unsigned char Speed_High_Byte;
 	unsigned char Speed_Low_Byte;
 	unsigned char Load_High_Byte;
 	unsigned char Load_Low_Byte;
-	
+
 	int Moving_Byte;
 	int RWS_Byte;
 	int Speed_Long_Byte;
@@ -199,31 +201,31 @@ private:
 	int Position_Long_Byte;
 	int Temperature_Byte;
 	int Voltage_Byte;
-	int Error_Byte; 
-	  
+	int Error_Byte;
+
 	int read_error(void);
-	
+
 public:
-	
-	void begin(long baud, unsigned char directionPin);
-	void begin(long baud);
+
+	void begin(long baud, unsigned char Rx, unsigned char Tx);
+	void begin(long baud, unsigned char Rx, unsigned char Tx, unsigned char D_Pin);
 	void end(void);
-	
+
 	int reset(unsigned char ID);
-	int ping(unsigned char ID); 
-	
+	int ping(unsigned char ID);
+
 	int setID(unsigned char ID, unsigned char newID);
 	int setBD(unsigned char ID, long baud);
-	
+
 	int move(unsigned char ID, int Position);
 	int moveSpeed(unsigned char ID, int Position, int Speed);
 	int setEndless(unsigned char ID,bool Status);
 	int turn(unsigned char ID, bool SIDE, int Speed);
 	int moveRW(unsigned char ID, int Position);
 	int moveSpeedRW(unsigned char ID, int Position, int Speed);
-	
+
 	void action(void);
-	
+
 	int setTempLimit(unsigned char ID, unsigned char Temperature);
 	int setAngleLimit(unsigned char ID, int CWLimit, int CCWLimit);
 	int setVoltageLimit(unsigned char ID, unsigned char DVoltage, unsigned char UVoltage);
@@ -235,17 +237,17 @@ public:
 	int setCMargin(unsigned char ID, unsigned char CWCMargin, unsigned char CCWCMargin);
 	int setCSlope(unsigned char ID, unsigned char CWCSlope, unsigned char CCWCSlope);
 	int setPunch(unsigned char ID, int Punch);
-	
+
 	int moving(unsigned char ID);
 	int lockRegister(unsigned char ID);
 	int RWStatus(unsigned char ID);
-	
+
 	int readTemperature(unsigned char ID);
 	int readVoltage(unsigned char ID);
 	int readPosition(unsigned char ID);
 	int readSpeed(unsigned char ID);
 	int readLoad(unsigned char ID);
-	
+
 	int torqueStatus(unsigned char ID, bool Status);
 	int ledStatus(unsigned char ID, bool Status);
 };

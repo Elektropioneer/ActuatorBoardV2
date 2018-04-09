@@ -2,13 +2,14 @@
 #include <PacketSerial.h>
 #include <A4988.h>
 #include <SoftwareSerial.h>
+#include <DynamixelSoftSerial.h>
 
 #include "modules.h"
 #include "motor.h"
 
 // packetserial object
 PacketSerial myPacketSerial;
-PacketSerial AXPacketSerial;
+//PacketSerial AXPacketSerial;
 
 // enabling motor regulator
 uint8_t enable_motor_regulator = 0;
@@ -18,7 +19,6 @@ double motor_achieve;
 #define AXSSRX         8
 #define AXSSTX         3
 #define AXSSBAUD       9600
-
 
 SoftwareSerial AXSS(AXSSRX, AXSSTX);
 
@@ -62,7 +62,11 @@ void onPacketReceived(const uint8_t* buffer, size_t size)
             case 's':
               setup_stepper(buffer[3], buffer[4]);
               break;
-          }
+            // Ax_Module setup
+            case 'a':
+              setup_ax(9600, 8,3, 7);
+              break;
+         }
           break;
 
           // CONTROL
@@ -97,6 +101,7 @@ void onPacketReceived(const uint8_t* buffer, size_t size)
                 } else if(buffer[3] == 'r') {//rpm
                   set_rpm_stepper(buffer[4], buffer[5]);
                 }
+                break;
             }
             break;
 
@@ -118,15 +123,45 @@ void onPacketReceived(const uint8_t* buffer, size_t size)
                 bufm[2] = motor_read() & 0xFF;
                 myPacketSerial.send(bufm,  sizeof(bufm)/sizeof(bufm)[0]);
                 break;
+
             }
             break;
       }
     } else if(buffer[0] == 'x'){
-      uint8_t buff[size];
+     /* uint8_t buff[size];
       for(int i=0; i<size; i++) {
         buff[i] = buffer[i];
       }
-      AXPacketSerial.send(buff, size);
+      AXPacketSerial.send(buff, size);*/
+      switch(buffer[1]) {
+        case 'm':
+          int calc;
+          calc = (int)((1024 / 255) * buffer[3]);
+          ax_move(buffer[2], calc);
+          break;
+        case 's':
+          int calc_angle, calc_speed;
+          calc_angle = (int)((1024 / 255) * buffer[3]);
+          calc_speed = (int)((1024 / 255) * buffer[4]);
+          ax_movespeed(buffer[2], calc_angle, calc_speed);
+          break;
+        case 'p':
+          int position;
+          uint8_t bufp[2];
+          position = ax_get_position(buffer[2]);
+          bufp[0] = buffer[1];
+          bufp[1] = (uint8_t)(position / 4.015);
+          myPacketSerial.send(bufp, sizeof(bufp)/sizeof(bufp)[0]);
+          break;
+        case 'M':
+          uint8_t status;
+          uint8_t bufM[2];
+          status = (uint8_t)(ax_get_moving(buffer[2]));
+          bufM[0] = buffer[1];
+          bufM[1] = status;
+          myPacketSerial.send(bufM, sizeof(bufM)/sizeof(bufM)[0]);
+          break;
+      }
     }
 }
 //d8 rx g
@@ -137,24 +172,13 @@ void setup() {
   // on receive execute the onPacketReceived function
   myPacketSerial.setPacketHandler(&onPacketReceived);
 
-  AXSS.begin(9600);
+  /*AXSS.begin(9600);
   AXPacketSerial.setStream(&AXSS);
   AXPacketSerial.setPacketHandler(&onPacketReceivedAX);
+*/
 
   pinMode(LED_BUILTIN, OUTPUT);
 
-  //analogWrite(11, 150);
-
-/*setup_l293d();
-  delay(500);
-  write_l293d(150, 1);
-  delay(300);
-  write_l293d(150, 2);
-  delay(300);
-  stop_l293d();*/
-/*delay(500);
-    uint8_t packet[4] = {'x','m', 4, 127};
-    AXPacketSerial.send(packet, 4);*/
 }
 
 void loop() {
@@ -165,6 +189,6 @@ void loop() {
 
   // update the packet serial
   myPacketSerial.update();
-  AXPacketSerial.update();
+//  AXPacketSerial.update();
 
 }
