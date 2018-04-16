@@ -7,6 +7,12 @@
 #include "modules.h"
 #include "motor.h"
 
+/*
+  AX MODULE ON   -> M1
+  STEPPER MODULE -> M2
+
+  OTHER ONES ARE FREE
+*/
 // packetserial object
 PacketSerial myPacketSerial;
 //PacketSerial AXPacketSerial;
@@ -15,20 +21,14 @@ PacketSerial myPacketSerial;
 uint8_t enable_motor_regulator = 0;
 // the encoder number which the motor should achieve
 double motor_achieve;
-
-#define AXSSRX         8
-#define AXSSTX         3
-#define AXSSBAUD       9600
-
-SoftwareSerial AXSS(AXSSRX, AXSSTX);
-
+/*
 void onPacketReceivedAX(const uint8_t* buffer, size_t size) {
   uint8_t buff[size];
   for(int i=0; i<size; i++) {
     buff[i] = buffer[i];
   }
   myPacketSerial.send(buff, size);
-}
+}*/
 
 /*
  * Function:    void onPacketReceived(const uint8_t* buffer, size_t size)
@@ -64,8 +64,14 @@ void onPacketReceived(const uint8_t* buffer, size_t size)
               break;
             // Ax_Module setup
             case 'a':
-              setup_ax(9600, 8,3, 7);
+              setup_ax(9600, 4, 6,2);
               break;
+            // stepper 2
+            case 'D':
+              // {'a', 's', 'D'}
+              setup_stepper_2();
+              break;
+
          }
           break;
 
@@ -101,6 +107,10 @@ void onPacketReceived(const uint8_t* buffer, size_t size)
                 } else if(buffer[3] == 'r') {//rpm
                   set_rpm_stepper(buffer[4], buffer[5]);
                 }
+                break;
+              case 'D':
+                // {'a', 'c', 'D', dir, rev}
+                stepper_2_move(buffer[3], buffer[4]);
                 break;
             }
             break;
@@ -168,27 +178,27 @@ void onPacketReceived(const uint8_t* buffer, size_t size)
 //d3 tx b
 void setup() {
   // packet serial on main serial port opened at 9600 baud
-  myPacketSerial.begin(9600);
+  myPacketSerial.begin(115200);
   // on receive execute the onPacketReceived function
   myPacketSerial.setPacketHandler(&onPacketReceived);
-
-  /*AXSS.begin(9600);
+  setup_ax(9600, 4,6 ,2);
+  delay(500);
+    /*AXSS.begin(9600);
   AXPacketSerial.setStream(&AXSS);
   AXPacketSerial.setPacketHandler(&onPacketReceivedAX);
 */
-
-  pinMode(LED_BUILTIN, OUTPUT);
-
 }
 
 void loop() {
   // if motor regulator (PID) is enabled, execute
-  /*if(enable_motor_regulator) {
+  if(enable_motor_regulator) {
     motor_regulate(motor_achieve);
-  }*/
+  }
 
   // update the packet serial
   myPacketSerial.update();
 //  AXPacketSerial.update();
+
+
 
 }

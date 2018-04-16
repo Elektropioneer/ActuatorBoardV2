@@ -4,8 +4,15 @@
 #include <DynamixelSoftSerial.h>
 #include <SoftwareSerial.h>
 
+int stepper_inA1 = 7; // input 1 of the stepper
+int stepper_inA2 = 3; // input 2 of the stepper
+int stepper_inB1 = 8; // input 3 of the stepper
+int stepper_inB2 = 9; // input 4 of the stepper
+
+static int stepper_step_delay = 25; // Delay between steps in milliseconds
+
 BasicStepperDriver stepper_mod1(200, 6, 2);
-BasicStepperDriver stepper_mod2(200, 3, 7);
+BasicStepperDriver stepper_mod2(200, 3, 7); // sig 7 , sig1 3; sig2 8p sig3 9
 BasicStepperDriver stepper_mod3(200, 11, 10);
 
 /******************************************************************
@@ -152,23 +159,26 @@ void set_rpm_stepper(uint8_t rpm, uint8_t module) {
 *******************************************************************/
 
 /* SETUP */
-void setup_ax(uint8_t baud,uint8_t Rx_Ax, uint8_t Tx_Ax, uint8_t Id) {
+void setup_ax(long baud,uint8_t Rx_Ax, uint8_t Tx_Ax, uint8_t Id) {
   /*
   D7: Id
   D8: Rx_Ax
   D3: Tx_Ax
   */
   Dynamixel.begin((long)(baud), Rx_Ax, Tx_Ax, Id );
+  delay(50);
 }
 
 /*ACTION*/
 void ax_move(uint8_t Id, uint16_t position) {
     Dynamixel.move(Id, position);
+    delay(200);
 }
 
 void ax_movespeed(uint8_t Id, uint16_t position, uint16_t speed) {
 
   Dynamixel.moveSpeed(Id, position, speed);
+  delay(200);
 
 }
 
@@ -196,4 +206,70 @@ int ax_get_temp(uint8_t Id) {
 int ax_get_voltage(uint8_t Id) {
   int x = Dynamixel.readVoltage(Id);
   return x;
+}
+
+/* STEPPER BUDZS */
+void setup_stepper_2() {
+  pinMode(stepper_inA1, OUTPUT);
+  pinMode(stepper_inA2, OUTPUT);
+  pinMode(stepper_inB1, OUTPUT);
+  pinMode(stepper_inB2, OUTPUT);
+}
+
+static void stepper_step1() {
+  digitalWrite(stepper_inA1, LOW);
+  digitalWrite(stepper_inA2, HIGH);
+  digitalWrite(stepper_inB1, HIGH);
+  digitalWrite(stepper_inB2, LOW);
+  delay(stepper_step_delay);
+
+}
+static void stepper_step2() {
+  digitalWrite(stepper_inA1, LOW);
+  digitalWrite(stepper_inA2, HIGH);
+  digitalWrite(stepper_inB1, LOW);
+  digitalWrite(stepper_inB2, HIGH);
+  delay(stepper_step_delay);
+}
+static void stepper_step3() {
+  digitalWrite(stepper_inA1, HIGH);
+  digitalWrite(stepper_inA2, LOW);
+  digitalWrite(stepper_inB1, LOW);
+  digitalWrite(stepper_inB2, HIGH);
+  delay(stepper_step_delay);
+}
+static void stepper_step4() {
+  digitalWrite(stepper_inA1, HIGH);
+  digitalWrite(stepper_inA2, LOW);
+  digitalWrite(stepper_inB1, HIGH);
+  digitalWrite(stepper_inB2, LOW);
+  delay(stepper_step_delay);
+}
+static void stepper_stopMotor() {
+  digitalWrite(stepper_inA1, LOW);
+  digitalWrite(stepper_inA2, LOW);
+  digitalWrite(stepper_inB1, LOW);
+  digitalWrite(stepper_inB2, LOW);
+}
+
+void stepper_2_move(uint8_t direction, uint8_t revolutions) {
+  // 44 jedna revolucija
+  // 11
+  if(direction == 1) {
+    for (int i=0; i<= revolutions; i++){
+      stepper_step1();
+      stepper_step2();
+      stepper_step3();
+      stepper_step4();
+    }
+    stepper_stopMotor();
+  } else {
+    for (int i=0; i<= revolutions; i++){
+      stepper_step3();
+      stepper_step2();
+      stepper_step1();
+      stepper_step4();
+    }
+    stepper_stopMotor();
+  }
 }
