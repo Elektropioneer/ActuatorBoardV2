@@ -258,7 +258,7 @@ void stepper_2_move(uint8_t direction, uint8_t speed, uint8_t revolutions) {
   stepper_step_delay = speed;
 
   if(direction == 1) {
-    for (int i=0; i<= revolutions; i++){
+    for (uint8_t i=0; i<= revolutions; i++){
       stepper_step1();
       stepper_step2();
       stepper_step3();
@@ -266,7 +266,7 @@ void stepper_2_move(uint8_t direction, uint8_t speed, uint8_t revolutions) {
     }
     stepper_stopMotor();
   } else {
-    for (int i=0; i<= revolutions; i++){
+    for (uint8_t i=0; i<= revolutions; i++){
       stepper_step3();
       stepper_step2();
       stepper_step1();

@@ -70,6 +70,7 @@ void onPacketReceived(const uint8_t* buffer, size_t size)
             case 'D':
               // {'a', 's', 'D'}
               setup_stepper_2();
+              delay(50);
               break;
 
          }
@@ -108,9 +109,11 @@ void onPacketReceived(const uint8_t* buffer, size_t size)
                   set_rpm_stepper(buffer[4], buffer[5]);
                 }
                 break;
-              case 'D':
-                // {'a', 'c', 'D', dir, speed, rev}
-                stepper_2_move(buffer[3], buffer[4], buffer[5]);
+              case 'f':
+                stepper_2_move(1, 10, 11);
+                break;
+              case 'F':
+                stepper_2_move(2, 10, 11);
                 break;
             }
             break;
@@ -178,7 +181,7 @@ void onPacketReceived(const uint8_t* buffer, size_t size)
 //d3 tx b
 void setup() {
   // packet serial on main serial port opened at 9600 baud
-  myPacketSerial.begin(115200);
+  myPacketSerial.begin(9600);
   // on receive execute the onPacketReceived function
   myPacketSerial.setPacketHandler(&onPacketReceived);
   setup_ax(9600, 4,6 ,2);
@@ -187,6 +190,7 @@ void setup() {
   AXPacketSerial.setStream(&AXSS);
   AXPacketSerial.setPacketHandler(&onPacketReceivedAX);
 */
+    setup_stepper_2();
 
 }
 
@@ -199,6 +203,5 @@ void loop() {
   // update the packet serial
   myPacketSerial.update();
 //  AXPacketSerial.update();
-
 
 }
