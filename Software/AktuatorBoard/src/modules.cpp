@@ -252,9 +252,11 @@ static void stepper_stopMotor() {
   digitalWrite(stepper_inB2, LOW);
 }
 
-void stepper_2_move(uint8_t direction, uint8_t revolutions) {
-  // 44 jedna revolucija
-  // 11
+void stepper_2_move(uint8_t direction, uint8_t speed, uint8_t revolutions) {
+  // 50 jedna revolucija
+
+  stepper_step_delay = speed;
+
   if(direction == 1) {
     for (int i=0; i<= revolutions; i++){
       stepper_step1();

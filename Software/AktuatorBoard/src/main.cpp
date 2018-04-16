@@ -109,8 +109,8 @@ void onPacketReceived(const uint8_t* buffer, size_t size)
                 }
                 break;
               case 'D':
-                // {'a', 'c', 'D', dir, rev}
-                stepper_2_move(buffer[3], buffer[4]);
+                // {'a', 'c', 'D', dir, speed, rev}
+                stepper_2_move(buffer[3], buffer[4], buffer[5]);
                 break;
             }
             break;
@@ -187,6 +187,7 @@ void setup() {
   AXPacketSerial.setStream(&AXSS);
   AXPacketSerial.setPacketHandler(&onPacketReceivedAX);
 */
+
 }
 
 void loop() {
@@ -198,7 +199,6 @@ void loop() {
   // update the packet serial
   myPacketSerial.update();
 //  AXPacketSerial.update();
-
 
 
 }

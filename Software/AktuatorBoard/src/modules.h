@@ -26,4 +26,4 @@ int ax_get_temp(uint8_t Id);
 int ax_get_voltage(uint8_t Id);
 
 void setup_stepper_2();
-void stepper_2_move(uint8_t direction, uint8_t revolutions);
+void stepper_2_move(uint8_t direction, uint8_t speed, uint8_t revolutions);
